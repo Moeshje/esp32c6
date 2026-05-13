@@ -9,7 +9,7 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 
-wifi_config_t wifi_config = {
+wifi_config_t wifi_config = { // This is the global wifi config
     .ap = {
         .ssid = "------",
         .ssid_len = strlen("------"),
@@ -19,7 +19,7 @@ wifi_config_t wifi_config = {
     },
 };
 
-TaskHandle_t led_task_handle = NULL;
+TaskHandle_t led_task_handle = NULL; 
 
 static void wifi_event_handler(void *arg, esp_event_base_t event_base, int32_t event_id, void *event_data) {
     if (event_id == WIFI_EVENT_AP_STACONNECTED) {
